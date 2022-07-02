@@ -1,8 +1,8 @@
 import time
 import json
 import requests
-#from time_modul import time_mod
-#from trading_bitmex import new_market_order
+from time_modul import time_mod
+from trading_bitmex import new_market_order
 
 
 def check_activ_ord(orderQty, data_new_bitcoin, reversal_candle_value):
