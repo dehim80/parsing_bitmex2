@@ -6,8 +6,8 @@ import json
 
 def new_market_order(orderQty):
     print(f'Мы вошли в функцию new_market_order сторона: {orderQty}')
-    client = bitmex.bitmex(test=False, api_key='A8n4hPQLXfbnKy4CONZwQAPl',
-                           api_secret='8aNSZRFE3ZzwbzMSyiqLXIzZTgeJUF6cUmXjrgTYW_1xjrfd')
+    client = bitmex.bitmex(test=False, api_key='',
+                           api_secret='')
     order_new_market = client.Order.Order_new(symbol='XRPUSD', orderQty=orderQty).result()
     ord_new_m_price = order_new_market[0]['price']
     orderID = order_new_market[0]['orderID']
@@ -29,8 +29,8 @@ def new_market_order(orderQty):
 
 def close_market_order(orderQty):
     print(f'Мы вошли в функцию close_market_order сторона: {orderQty}')
-    client = bitmex.bitmex(test=False, api_key='A8n4hPQLXfbnKy4CONZwQAPl',
-                           api_secret='8aNSZRFE3ZzwbzMSyiqLXIzZTgeJUF6cUmXjrgTYW_1xjrfd')
+    client = bitmex.bitmex(test=False, api_key='',
+                           api_secret='')
     order_new_market = client.Order.Order_new(symbol='XRPUSD', orderQty=orderQty).result()
     ord_new_m_price = order_new_market[0]['price']
     orderID = order_new_market[0]['orderID']
@@ -41,8 +41,8 @@ def close_market_order(orderQty):
 def new_limit_order(orderQty, price):
     # открывает позицию (orderQty=+1)-на покупку. (orderQty=-1)-на продажу.записывает orderId в файл order_id
     print(f'Мы вошли в функцию new_limit_order сторона: {orderQty} цена: {price} ')
-    client = bitmex.bitmex(test=False, api_key='A8n4hPQLXfbnKy4CONZwQAPl',
-                           api_secret='8aNSZRFE3ZzwbzMSyiqLXIzZTgeJUF6cUmXjrgTYW_1xjrfd')
+    client = bitmex.bitmex(test=False, api_key='',
+                           api_secret='')
     order_new = client.Order.Order_new(symbol='XRPUSD', orderQty=orderQty, ordType='Limit', price=price).result()
     print('лимитник выставлен  orderID: ',order_new[0]['orderID'])
     return
@@ -51,8 +51,8 @@ def new_limit_order(orderQty, price):
 def new_stop_order(orderQty, stopPX):
     # открывает позицию (orderQty=+1)-на покупку. (orderQty=-1)-на продажу.записывает orderId в файл order_id
     print(f'Мы вошли в функцию new_stop_order сторона: {orderQty} цена: {stopPX}')
-    client = bitmex.bitmex(test=False, api_key='A8n4hPQLXfbnKy4CONZwQAPl',
-                           api_secret='8aNSZRFE3ZzwbzMSyiqLXIzZTgeJUF6cUmXjrgTYW_1xjrfd')
+    client = bitmex.bitmex(test=False, api_key='',
+                           api_secret='')
     order_new = client.Order.Order_new(symbol='XRPUSD', orderQty=orderQty, ordType='Stop', stopPx=stopPX).result()
     print('orderID: ', order_new[0]['orderID'])
     order_tpl = order_new[0]
@@ -65,8 +65,8 @@ def new_stop_order(orderQty, stopPX):
 
 def close_position(orderID):
     # Закрывает позицию. Читает ID ордера из файла orderId
-    client = bitmex.bitmex(test=False, api_key='A8n4hPQLXfbnKy4CONZwQAPl',
-                           api_secret='8aNSZRFE3ZzwbzMSyiqLXIzZTgeJUF6cUmXjrgTYW_1xjrfd')
+    client = bitmex.bitmex(test=False, api_key='',
+                           api_secret='')
 
     client.Order.Order_cancel(orderID=orderID).result()
     print(f'Ордер закрыт  {orderID}')
@@ -75,8 +75,8 @@ def close_position(orderID):
 def close_all_position():
     # Закрывает все позиции.
     print('Мы в функции close_all_position')
-    client = bitmex.bitmex(test=False, api_key='A8n4hPQLXfbnKy4CONZwQAPl',
-                           api_secret='8aNSZRFE3ZzwbzMSyiqLXIzZTgeJUF6cUmXjrgTYW_1xjrfd')
+    client = bitmex.bitmex(test=False, api_key='',
+                           api_secret='')
 
     client.Order.Order_cancelAll().result()
     print('Все ордера закрыты')
